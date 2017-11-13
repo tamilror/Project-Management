@@ -1,0 +1,7 @@
+== README
+
+
+below setp follow 
+
+1. first create rake db:setup
+

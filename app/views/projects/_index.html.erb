@@ -1,0 +1,45 @@
+
+
+<table style="width:100%" id="table-div-id">
+<thead>
+  <tr>
+     <th>Project Tite</th>
+     <th>User name</th>
+     <th>Category Name</th>
+     <th>Project created date time</th>
+  </tr>
+  </thead>
+ <%if data.present?%>
+ 
+
+  <tbody>
+  <% data.each do |project| %>
+
+  <tr>
+      <td><%= project.title %></td>
+      <td><%= project.user.try(:name) %></td>
+      <td><%= project.category.try(:name) %></td>
+      <td><%= project.created_at.strftime("%d/%m/%Y %H:%M") %>
+      </tr>
+      <% end %>	
+      </tbody>
+<%end%>
+</table> 
+
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="https://www.jqueryscript.net/demo/Tiny-jQuery-Pagination-Widget-For-HTML-Table-table-hpaging/scripts/jquery.table.hpaging.min.js"></script>
+
+<script type="text/javaScript">	
+function pagination(){	
+		 $("#table-div-id").hpaging({ 
+		 	"limit": 2,
+		 	 });
+	}
+
+</script>
+
+
+
+
+  
+  

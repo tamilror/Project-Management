@@ -1,0 +1,25 @@
+<h1>Project Management</h1>
+<div>
+<label> Sort by :</label> <%= select_tag "project", options_for_select([ ["Recent Projects","0"], ["By Project Title Asc", "1"] ,["By Category Name ASC", "2"],["By Username Ascl", "3"]])%>
+</div>
+<div id="send">
+<%= render partial: 'index',:locals => { :data => @projects } %>
+</div>
+
+<script type="text/javascript">
+$ (document).ready(function() {
+	pagination();
+$('#project').change(function() {
+var drop_down = $(this).val();
+	// alert('success')
+  $.ajax({ type: "GET",   
+           url: "/projects/index_sort",
+           data: {name: drop_down},  
+           dataType : 'script',
+           success:function(){
+           	pagination();
+           }
+  });
+});
+});
+</script>
